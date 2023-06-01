@@ -1,0 +1,57 @@
+﻿#nullable enable
+abstract Datatent3.Common.Memory.MemorySlabPoolBase.Return(Datatent3.Common.Memory.IMemorySlab! segment) -> void
+const Datatent3.Common.Constants.MaxSlotsPerPage = 255 -> int
+const Datatent3.Common.Constants.PageAddressSize = 6 -> int
+const Datatent3.Common.Constants.PageHeaderSize = 96 -> int
+const Datatent3.Common.Constants.PageSize = 8192 -> int
+const Datatent3.Common.Constants.PageSlotEntrySize = 4 -> int
+Datatent3.Common.Constants
+Datatent3.Common.Extensions.SpanExtensions
+Datatent3.Common.Memory.MemorySlabPoolBase
+Datatent3.Common.Memory.MemorySlabPoolBase.MemorySlabPoolBase() -> void
+Datatent3.Common.Memory.NativeMemorySlab
+Datatent3.Common.Memory.NativeMemorySlab.Clear() -> void
+Datatent3.Common.Memory.NativeMemorySlab.Dispose() -> void
+Datatent3.Common.Memory.NativeMemorySlab.GetPointer() -> byte*
+Datatent3.Common.Memory.NativeMemorySlab.Key.get -> int
+Datatent3.Common.Memory.NativeMemorySlab.Length.get -> uint
+Datatent3.Common.Memory.NativeMemorySlab.Memory.get -> System.Memory<byte>
+Datatent3.Common.Memory.NativeMemorySlab.NativeMemorySlab(System.Memory<byte> memory, int key, Datatent3.Common.Memory.NativeMemorySlabPool! pool) -> void
+Datatent3.Common.Memory.NativeMemorySlab.Span.get -> System.Span<byte>
+Datatent3.Common.Memory.NativeMemorySlabPool
+Datatent3.Common.Memory.NativeMemorySlabPool.FreeSlots.get -> int
+Datatent3.Common.Memory.NativeMemorySlabPool.GetPointerToSlot(int key) -> nint
+Datatent3.Common.Memory.NativeMemorySlabPool.HasFreeSlots() -> bool
+Datatent3.Common.Memory.NativeMemorySlabPool.Logger.set -> void
+Datatent3.Common.Memory.NativeMemorySlabPool.NativeMemorySlabPool() -> void
+Datatent3.Common.Memory.UnmanagedMemoryManager<T>
+Datatent3.Common.Memory.UnmanagedMemoryManager<T>.UnmanagedMemoryManager(nint pointer, int length) -> void
+Datatent3.Common.Memory.UnmanagedMemoryManager<T>.UnmanagedMemoryManager(System.Span<T> span) -> void
+Datatent3.Common.Memory.UnmanagedMemoryManager<T>.UnmanagedMemoryManager(T* pointer, int length) -> void
+override abstract Datatent3.Common.Memory.MemorySlabPoolBase.Rent(int minBufferSize = -1) -> Datatent3.Common.Memory.IMemorySlab!
+override Datatent3.Common.Memory.NativeMemorySlabPool.Dispose(bool disposing) -> void
+override Datatent3.Common.Memory.NativeMemorySlabPool.Rent(int minBufferSize = -1) -> Datatent3.Common.Memory.IMemorySlab!
+override Datatent3.Common.Memory.NativeMemorySlabPool.Return(Datatent3.Common.Memory.IMemorySlab! segment) -> void
+override Datatent3.Common.Memory.UnmanagedMemoryManager<T>.GetSpan() -> System.Span<T>
+override Datatent3.Common.Memory.UnmanagedMemoryManager<T>.Pin(int elementIndex = 0) -> System.Buffers.MemoryHandle
+override Datatent3.Common.Memory.UnmanagedMemoryManager<T>.Unpin() -> void
+override sealed Datatent3.Common.Memory.NativeMemorySlabPool.MaxBufferSize.get -> int
+static Datatent3.Common.Extensions.SpanExtensions.ReadBool(this System.Span<byte> span, int offset) -> bool
+static Datatent3.Common.Extensions.SpanExtensions.ReadByte(this System.Span<byte> span, int offset) -> byte
+static Datatent3.Common.Extensions.SpanExtensions.ReadBytes(this System.Span<byte> span, int offset, int length) -> byte[]!
+static Datatent3.Common.Extensions.SpanExtensions.ReadGuid(this System.Span<byte> span, int offset) -> System.Guid
+static Datatent3.Common.Extensions.SpanExtensions.ReadUInt16(this System.Span<byte> span, int offset) -> ushort
+static Datatent3.Common.Extensions.SpanExtensions.ReadUInt32(this System.Span<byte> span, int offset) -> uint
+static Datatent3.Common.Extensions.SpanExtensions.Write<T>(this System.Span<T> span, int offset, System.Span<T> values) -> void
+static Datatent3.Common.Extensions.SpanExtensions.WriteBool(this System.Span<byte> span, int offset, bool b) -> void
+static Datatent3.Common.Extensions.SpanExtensions.WriteByte(this System.Span<byte> span, int offset, byte b) -> void
+static Datatent3.Common.Extensions.SpanExtensions.WriteBytes(this ref System.Span<byte> span, int offset, byte[]! bytes) -> void
+static Datatent3.Common.Extensions.SpanExtensions.WriteBytes(this ref System.Span<byte> span, int offset, System.Span<byte> bytes) -> void
+static Datatent3.Common.Extensions.SpanExtensions.WriteBytesSafe(this ref System.Span<byte> span, int offset, byte[]! bytes) -> void
+static Datatent3.Common.Extensions.SpanExtensions.WriteBytesSafe(this ref System.Span<byte> span, int offset, System.Span<byte> bytes) -> void
+static Datatent3.Common.Extensions.SpanExtensions.WriteBytesSafe(this System.Memory<byte> memory, int offset, byte[]! bytes) -> void
+static Datatent3.Common.Extensions.SpanExtensions.WriteGuid(this System.Span<byte> span, int offset, System.Guid id) -> void
+static Datatent3.Common.Extensions.SpanExtensions.WriteInt64(this System.Span<byte> span, int offset, long val) -> void
+static Datatent3.Common.Extensions.SpanExtensions.WriteUInt32(this System.Span<byte> span, int offset, uint val) -> void
+static Datatent3.Common.Extensions.SpanExtensions.WriteUInt64(this System.Span<byte> span, int offset, ulong val) -> void
+static Datatent3.Common.Memory.NativeMemorySlabPool.Shared.get -> Datatent3.Common.Memory.NativeMemorySlabPool!
