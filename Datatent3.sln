@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.cspr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{34FB65B2-CBFC-4864-9639-5340FEE07A38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datatent3.Common", "src\Datatent3.Common\Datatent3.Common.csproj", "{AFAD5E31-261C-42AF-A9C2-11727B8C3486}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datatent3.Common", "src\Datatent3.Common\Datatent3.Common.csproj", "{AFAD5E31-261C-42AF-A9C2-11727B8C3486}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Projektmappenelemente", "{5C84F76C-757B-4810-ADF3-78F52B24176C}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,9 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6D86304F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bench", "bench", "{01CC9257-1A27-4362-8453-EA08CEFE9B8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datatent3.Common.Bench", "bench\Datatent3.Core.Bench\Datatent3.Common.Bench.csproj", "{BF1CD3E5-7B13-4E1D-BBD6-237106F9F85D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datatent3.Common.Bench", "bench\Datatent3.Core.Bench\Datatent3.Common.Bench.csproj", "{BF1CD3E5-7B13-4E1D-BBD6-237106F9F85D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datatent3.Common.Tests", "tests\Datatent3.Common.Tests\Datatent3.Common.Tests.csproj", "{C84CBB54-AD33-4EF9-A2F3-50B8F8F875DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datatent3.Common.Tests", "tests\Datatent3.Common.Tests\Datatent3.Common.Tests.csproj", "{C84CBB54-AD33-4EF9-A2F3-50B8F8F875DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datatent3.ConsoleTest", "src\Datatent3.ConsoleTest\Datatent3.ConsoleTest.csproj", "{25DEA888-88B7-45D4-8A1F-C5CEA5D60DA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{C84CBB54-AD33-4EF9-A2F3-50B8F8F875DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C84CBB54-AD33-4EF9-A2F3-50B8F8F875DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C84CBB54-AD33-4EF9-A2F3-50B8F8F875DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25DEA888-88B7-45D4-8A1F-C5CEA5D60DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25DEA888-88B7-45D4-8A1F-C5CEA5D60DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25DEA888-88B7-45D4-8A1F-C5CEA5D60DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25DEA888-88B7-45D4-8A1F-C5CEA5D60DA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{AFAD5E31-261C-42AF-A9C2-11727B8C3486} = {34FB65B2-CBFC-4864-9639-5340FEE07A38}
 		{BF1CD3E5-7B13-4E1D-BBD6-237106F9F85D} = {01CC9257-1A27-4362-8453-EA08CEFE9B8C}
 		{C84CBB54-AD33-4EF9-A2F3-50B8F8F875DD} = {6D86304F-3B08-41EB-94D5-7F1AC225141A}
+		{25DEA888-88B7-45D4-8A1F-C5CEA5D60DA9} = {34FB65B2-CBFC-4864-9639-5340FEE07A38}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AF744FEC-47D8-460A-9CD0-038AB1AE5840}

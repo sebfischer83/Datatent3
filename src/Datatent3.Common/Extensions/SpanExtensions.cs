@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datatent3.Common.Memory;
+using System;
 using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,20 @@ namespace Datatent3.Common.Extensions
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+        public static unsafe IMemorySlab ReadBytesToSlab(this Span<byte> span, int offset, int length)
+        {
+            var returnArray = MemorySlabFactory.GetImplementation().Rent();
+
+            fixed (byte* bp = span.Slice(offset))
+            fixed (byte* rp = returnArray.Span)
+            {
+                Unsafe.CopyBlock(rp, bp, (uint)length);
+            }
+
+            return returnArray;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static unsafe byte[] ReadBytesRented(this Span<byte> span, int offset, int length)
         {
             var returnArray = ArrayPool<byte>.Shared.Rent(length);
@@ -63,7 +78,7 @@ namespace Datatent3.Common.Extensions
         {
             var returnArray = new byte[length];
 
-            span.Slice(offset).CopyTo(returnArray);
+            span.Slice(offset, length).CopyTo(returnArray);
             
             return returnArray;
         }

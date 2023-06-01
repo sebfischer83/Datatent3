@@ -2,6 +2,7 @@
 using Bogus;
 using Datatent3.Common;
 using Datatent3.Common.Extensions;
+using Datatent3.Common.Memory;
 using System;
 using System.Buffers;
 using System.Collections.Generic;
@@ -21,50 +22,50 @@ namespace Datatent3.Core.Bench.Extensions
         public void Setup()
         {
             Randomizer randomizer = new Randomizer();
-            _demoData = randomizer.Bytes(Constants.PageSize);
+            _demoData = randomizer.Bytes(Constants.PageSize * 1000);
         }
 
-        [Benchmark]
-        public int ReadByteBench()
-        {
-            int i = 0;
-            Span<byte> bytes = _demoData;
+        //[Benchmark]
+        //public int ReadByteBench()
+        //{
+        //    int i = 0;
+        //    Span<byte> bytes = _demoData;
 
-            for (int t = 0; t < Constants.PageSize - 1; t++)
-            {
-                i += bytes.ReadByte(t);
-            }
+        //    for (int t = 0; t < Constants.PageSize - 1; t++)
+        //    {
+        //        i += bytes.ReadByte(t);
+        //    }
 
-            return i;
-        }
+        //    return i;
+        //}
 
-        [Benchmark]
-        public int ReadBytesBench()
-        {
-            int i = 0;
-            Span<byte> bytes = _demoData;
+        //[Benchmark]
+        //public int ReadBytesBench()
+        //{
+        //    int i = 0;
+        //    Span<byte> bytes = _demoData;
 
-            for (int t = 0; t < Constants.PageSize - 2; t++)
-            {
-                i += bytes.ReadBytes(t, Constants.PageSize - t).Length;
-            }
+        //    for (int t = 0; t < 1000 - 1; t++)
+        //    {
+        //        i += bytes.ReadBytes(t * Constants.PageSize, Constants.PageSize).Length;
+        //    }
 
-            return i;
-        }
+        //    return i;
+        //}
 
-        [Benchmark]
-        public int ReadBytesSafeBench()
-        {
-            int i = 0;
-            Span<byte> bytes = _demoData;
+        //[Benchmark]
+        //public int ReadBytesSafeBench()
+        //{
+        //    int i = 0;
+        //    Span<byte> bytes = _demoData;
 
-            for (int t = 0; t < Constants.PageSize - 2; t++)
-            {
-                i += bytes.ReadBytesSafe(t, Constants.PageSize - t).Length;
-            }
+        //    for (int t = 0; t < 1000 - 1; t++)
+        //    {
+        //        i += bytes.ReadBytesSafe(t * Constants.PageSize, Constants.PageSize).Length;
+        //    }
 
-            return i;
-        }
+        //    return i;
+        //}
 
         [Benchmark]
         public int ReadBytesRentedBench()
@@ -72,12 +73,29 @@ namespace Datatent3.Core.Bench.Extensions
             int i = 0;
             Span<byte> bytes = _demoData;
 
-            for (int t = 0; t < Constants.PageSize - 2; t++)
+            for (int t = 0; t < 1000 - 1; t++)
             {
-                var arr = bytes.ReadBytesRented(t, Constants.PageSize - t);
+                var arr = bytes.ReadBytesRented(t * Constants.PageSize, Constants.PageSize);
 
                 i += arr.Length;
                 ArrayPool<byte>.Shared.Return(arr);
+            }
+
+            return i;
+        }
+
+        [Benchmark]
+        public int ReadBytesSlabBench()
+        {
+            int i = 0;
+            Span<byte> bytes = _demoData;
+
+            for (int t = 0; t < 1000 - 1; t++)
+            {
+                var arr = bytes.ReadBytesToSlab(t * Constants.PageSize, Constants.PageSize);
+
+                i += arr.Span.Length;
+                arr.Dispose();
             }
 
             return i;
